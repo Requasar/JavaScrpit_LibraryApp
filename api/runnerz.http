@@ -1,0 +1,51 @@
+### Find ALl Runs
+GET http://localhost:8080/api/lib
+
+### Find Run By ID
+GET http://localhost:8080/api/lib/2
+
+### Find Run By ID that doesn't exist
+GET http://localhost:8080/api/lib/99
+
+
+### Create new Run
+POST http://localhost:8080/api/lib
+Content-Type: application/json
+
+{
+        "id": 11,
+        "book": "Witcher11",
+        "pages": 250,
+        "author": "Wars",
+        "startOn": "2024-11-01T14:13:11.8648301",
+        "completedOn": "2024-11-01T14:43:11.8648301"
+}
+
+### Create new Run with invalid dates (completedOn is before startedOn)
+POST http://localhost:8080/api/lib
+Content-Type: application/json
+
+{
+        "id": 11,
+        "book": "Witcher11",
+        "pages": 450,
+        "author": "Wars",
+        "startOn": "2025-11-01T14:13:11.8648301",
+        "completedOn": "2024-11-01T14:43:11.8648301"
+}
+
+### Update an existing Run
+PUT http://localhost:8080/api/lib/11
+Content-Type: application/json
+
+{
+        "id": 11,
+        "book": "Witcher11",
+        "pages": 451,
+        "author": "Wars",
+        "startOn": "2024-11-01T14:13:11.8648301",
+        "completedOn": "2024-11-01T14:43:11.8648301"
+}
+
+### Delete a Run
+DELETE http://localhost:8080/api/lib/11
